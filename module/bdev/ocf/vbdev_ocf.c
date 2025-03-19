@@ -1064,6 +1064,8 @@ create_management_queue(struct vbdev_ocf *vbdev)
 static void
 start_cache(struct vbdev_ocf *vbdev)
 {
+	ocf_history_hash_cleanup();
+
 	ocf_cache_t existing;
 	uint32_t cache_block_size = vbdev->cache.bdev->blocklen;
 	uint32_t core_block_size = vbdev->core.bdev->blocklen;
